@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'utils/json.dart';
 
 class Diagnose extends StatefulWidget {
   @override
@@ -6,18 +7,18 @@ class Diagnose extends StatefulWidget {
 }
 
 class _DiagnoseState extends State<Diagnose> {
-  void startDiagnose(arg) {
-    debugPrint(arg);
-  }
+  String _hobby = parseJsonFromAssets('assets/json/person.json');
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          'next'
+        child: ListView(
+          children: <Widget>[
+            
+          ],
         )
-      ),  
+      )
     );
   }
 }
