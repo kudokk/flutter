@@ -1,0 +1,1901 @@
+[
+  {
+    "ask": "インドア派？ アウトドア派？",
+    "choise": [
+      {
+        "text": "インドア",
+        "status": {
+          "sociability": -2,
+          "collect": 0,
+          "multiPlay": -1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": -1,
+          "it": 1,
+          "margin": 1,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "アウトドア",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 1,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 2,
+          "it": 1,
+          "margin": 0,
+          "costPerformance": -1
+        }
+      }
+    ]
+  },
+  {
+    "ask": "お酒を飲むのが好き？",
+    "choise": [
+      {
+        "text": "一人で飲むのが好き",
+        "status": {
+          "sociability": -2,
+          "collect": 1,
+          "multiPlay": -2,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": -1,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "複数人で飲むのが好き",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 2,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": -1,
+          "it": 0,
+          "margin": -1,
+          "costPerformance": -1
+        }
+      },
+      {
+        "text": "好きじゃない",
+        "status": {
+          "sociability": -1,
+          "collect": 0,
+          "multiPlay": -1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 2,
+          "costPerformance": 2
+        }
+      }
+    ]
+  },
+  {
+    "ask": "仕事もしくは専攻は？",
+    "choise": [
+      {
+        "text": "クリエイティブ",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 2,
+          "sport": 0,
+          "it": 0,
+          "margin": -1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "単純作業",
+        "status": {
+          "sociability": -1,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": -1,
+          "sport": 0,
+          "it": 0,
+          "margin": 2,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "今までの恋人の数は？",
+    "choise": [
+      {
+        "text": "10人以上",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 2,
+          "selfPolishing": 2,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": -1,
+          "costPerformance": 2
+        }
+      },
+      {
+        "text": "5人以上",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 1,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "5人より少ない",
+        "status": {
+          "sociability": -2,
+          "collect": 0,
+          "multiPlay": -2,
+          "selfPolishing": 1,
+          "art": -2,
+          "sport": -2,
+          "it": 1,
+          "margin": 2,
+          "costPerformance": -2
+        }
+      }
+    ]
+  },
+  {
+    "ask": "運動は好き？",
+    "choise": [
+      {
+        "text": "すごい好き",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 2,
+          "it": -1,
+          "margin": 2,
+          "costPerformance": -2
+        }
+      },
+      {
+        "text": "気が向いた時にするぐらい",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 1,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": -1
+        }
+      },
+      {
+        "text": "好きではないもしくは観るのは好き",
+        "status": {
+          "sociability": -1,
+          "collect": 0,
+          "multiPlay": -1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": -1
+        }
+      }
+    ]
+  },
+  {
+    "ask": "PCやスマホの使用頻度は？",
+    "choise": [
+      {
+        "text": "いつも",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": -1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 2,
+          "margin": 1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "たまに",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 1,
+          "margin": 1,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "全然",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 0,
+          "it": -1,
+          "margin": 2,
+          "costPerformance": 2
+        }
+      }
+    ]
+  },
+  {
+    "ask": "兄弟・姉妹はいますか？",
+    "choise": [
+      {
+        "text": "2人以上いる",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 1,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 2
+        }
+      },
+      {
+        "text": "1人いる",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 1,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "一人っ子",
+        "status": {
+          "sociability": -1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": -1
+        }
+      }
+    ]
+  },
+  {
+    "ask": "PC・スマホを買うときは性能にこだわる？",
+    "choise": [
+      {
+        "text": "かなり",
+        "status": {
+          "sociability": 1,
+          "collect": 2,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 0,
+          "it": 2,
+          "margin": 1,
+          "costPerformance": 2
+        }
+      },
+      {
+        "text": "少しだけ",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 1,
+          "margin": 1,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "全然",
+        "status": {
+          "sociability": 1,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": -1,
+          "margin": 1,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "音楽は好き？",
+    "choise": [
+      {
+        "text": "大好き",
+        "status": {
+          "sociability": 2,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 2,
+          "sport": 0,
+          "it": 1,
+          "margin": 1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "好き",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 1,
+          "sport": 0,
+          "it": 1,
+          "margin": 0,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "興味ない",
+        "status": {
+          "sociability": -1,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": -2,
+          "sport": 0,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": -2
+        }
+      }
+    ]
+  },
+  {
+    "ask": "旅行は好き？",
+    "choise": [
+      {
+        "text": "好き",
+        "status": {
+          "sociability": 2,
+          "collect": 1,
+          "multiPlay": 1,
+          "selfPolishing": 2,
+          "art": 1,
+          "sport": 0,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": -2
+        }
+      },
+      {
+        "text": "そこそこ",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": -1,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "全然",
+        "status": {
+          "sociability": -2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 0,
+          "it": -1,
+          "margin": -2,
+          "costPerformance": 2
+        }
+      }
+    ]
+  },
+  {
+    "ask": "好きな天気は？",
+    "choise": [
+      {
+        "text": "快晴",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 1,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "雲がかった晴れ",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 2,
+          "sport": 0,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "曇り",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 1,
+          "margin": -1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "雨",
+        "status": {
+          "sociability": -2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 2,
+          "sport": 0,
+          "it": 0,
+          "margin": -2,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "好きな季節は？",
+    "choise": [
+      {
+        "text": "春",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 1,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "夏",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 2,
+          "it": 0,
+          "margin": -1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "秋",
+        "status": {
+          "sociability": -1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 2,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "冬",
+        "status": {
+          "sociability": -2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 2,
+          "sport": 0,
+          "it": 0,
+          "margin": 2,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "ゲームはよくする？",
+    "choise": [
+      {
+        "text": "日課",
+        "status": {
+          "sociability": -1,
+          "collect": 2,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 1,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "たまに",
+        "status": {
+          "sociability": 0,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": -1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "全然",
+        "status": {
+          "sociability": 1,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "コツコツ努力するのが得意・好き？",
+    "choise": [
+      {
+        "text": "好き",
+        "status": {
+          "sociability": -1,
+          "collect": 2,
+          "multiPlay": 0,
+          "selfPolishing": 2,
+          "art": 0,
+          "sport": 0,
+          "it": 1,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "そこそこ",
+        "status": {
+          "sociability": 0,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": -2,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "嫌い",
+        "status": {
+          "sociability": 1,
+          "collect": -2,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "友達とワイワイするのが好き？",
+    "choise": [
+      {
+        "text": "すごい好き",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 2,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 1,
+          "it": 0,
+          "margin": -1,
+          "costPerformance": 2
+        }
+      },
+      {
+        "text": "そこそこ好き",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "嫌い",
+        "status": {
+          "sociability": -1,
+          "collect": 0,
+          "multiPlay": -1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": -1
+        }
+      },
+      {
+        "text": "すごい嫌い",
+        "status": {
+          "sociability": -2,
+          "collect": 0,
+          "multiPlay": -2,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": -1,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": -2
+        }
+      }
+    ]
+  },
+  {
+    "ask": "憧れのスポーツ選手いる？",
+    "choise": [
+      {
+        "text": "いる",
+        "status": {
+          "sociability": 2,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 2,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "いない",
+        "status": {
+          "sociability": 0,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": -1,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "綺麗・可愛いものに目がない？",
+    "choise": [
+      {
+        "text": "目がない",
+        "status": {
+          "sociability": 1,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 2,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 2
+        }
+      },
+      {
+        "text": "全然",
+        "status": {
+          "sociability": 0,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 1
+        }
+      }
+    ]
+  },
+  {
+    "ask": "どちらかというとおとなしい性格？",
+    "choise": [
+      {
+        "text": "はい",
+        "status": {
+          "sociability": -2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "いいえ",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": -1,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "学生時代は何系の部活？",
+    "choise": [
+      {
+        "text": "文化系",
+        "status": {
+          "sociability": 1,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 1,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "運動系",
+        "status": {
+          "sociability": 2,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 2,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "帰宅部",
+        "status": {
+          "sociability": -2,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": -1,
+          "it": 0,
+          "margin": 2,
+          "costPerformance": -1
+        }
+      }
+    ]
+  },
+  {
+    "ask": "学生時代はよく遊んだもしくは遊んでいる？",
+    "choise": [
+      {
+        "text": "よく遊んだ",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 2,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 1,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 2
+        }
+      },
+      {
+        "text": "そこそこ遊んだ",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 2,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "全然",
+        "status": {
+          "sociability": -2,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": -1,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "プログラミングに興味がある？",
+    "choise": [
+      {
+        "text": "興味ある",
+        "status": {
+          "sociability": 1,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 0,
+          "it": 2,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "興味ない",
+        "status": {
+          "sociability": 0,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": -1,
+          "art": 0,
+          "sport": 0,
+          "it": -2,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "すぐに友達ができる方？",
+    "choise": [
+      {
+        "text": "はい",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 2,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "いいえ",
+        "status": {
+          "sociability": -2,
+          "collect": -1,
+          "multiPlay": -2,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "新しい環境にはすぐ慣れる？",
+    "choise": [
+      {
+        "text": "はい",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 2,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "いいえ",
+        "status": {
+          "sociability": -2,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "物を捨てられるタイプ？",
+    "choise": [
+      {
+        "text": "不要に感じたらすぐ捨てる",
+        "status": {
+          "sociability": 0,
+          "collect": -2,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "ものは全然持たない",
+        "status": {
+          "sociability": 0,
+          "collect": -2,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": -2
+        }
+      },
+      {
+        "text": "捨てられない",
+        "status": {
+          "sociability": 0,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 1
+        }
+      }
+    ]
+  },
+  {
+    "ask": "アートに興味がある？",
+    "choise": [
+      {
+        "text": "興味ある",
+        "status": {
+          "sociability": 1,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 2,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "興味ない",
+        "status": {
+          "sociability": -1,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": -2,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "物作りは好き？",
+    "choise": [
+      {
+        "text": "好き",
+        "status": {
+          "sociability": 0,
+          "collect": 2,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 1,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "好きじゃない",
+        "status": {
+          "sociability": 0,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": -1,
+          "art": 0,
+          "sport": 2,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "金銭的に余裕がある？",
+    "choise": [
+      {
+        "text": "結構、余裕ある",
+        "status": {
+          "sociability": 0,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": -2
+        }
+      },
+      {
+        "text": "少しなら",
+        "status": {
+          "sociability": 0,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": -1
+        }
+      },
+      {
+        "text": "全然",
+        "status": {
+          "sociability": 0,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 2
+        }
+      }
+    ]
+  },
+  {
+    "ask": "現在、働いていますか？",
+    "choise": [
+      {
+        "text": "働いている",
+        "status": {
+          "sociability": 2,
+          "collect": 2,
+          "multiPlay": 0,
+          "selfPolishing": 2,
+          "art": 0,
+          "sport": 0,
+          "it": 1,
+          "margin": -2,
+          "costPerformance": -1
+        }
+      },
+      {
+        "text": "働いていないもしくは学生",
+        "status": {
+          "sociability": 0,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 2,
+          "it": 0,
+          "margin": -2,
+          "costPerformance": 2
+        }
+      }
+    ]
+  },
+  {
+    "ask": "一日で、余暇にどれくらいの時間を割けますか？",
+    "choise": [
+      {
+        "text": "何時間でも",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 2,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "1,2時間だけなら",
+        "status": {
+          "sociability": 2,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 2,
+          "it": 0,
+          "margin": -1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "ちょっとした空き時間なら",
+        "status": {
+          "sociability": 0,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": -2,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "小さい頃どう遊ぶのが好きだった？",
+    "choise": [
+      {
+        "text": "屋外で駆け回って遊ぶ",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 2,
+          "it": -1,
+          "margin": 2,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "何か収集する",
+        "status": {
+          "sociability": -1,
+          "collect": 2,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 1,
+          "sport": -1,
+          "it": 1,
+          "margin": 0,
+          "costPerformance": -1
+        }
+      },
+      {
+        "text": "兄弟や友人についていって遊ぶ",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 2,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 1,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "お絵かき、パズルなど",
+        "status": {
+          "sociability": 1,
+          "collect": 1,
+          "multiPlay": -2,
+          "selfPolishing": 1,
+          "art": 2,
+          "sport": -1,
+          "it": 1,
+          "margin": -2,
+          "costPerformance": -1
+        }
+      }
+    ]
+  },
+  {
+    "ask": "外人に話しかけられたが言葉がわからない！",
+    "choise": [
+      {
+        "text": "言葉が理解できないと伝える",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "何とか手を尽くして助ける",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 2,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 2,
+          "it": 0,
+          "margin": -1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "とりあえず話だけ聞いてみる",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 2,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "無視して素通り",
+        "status": {
+          "sociability": -2,
+          "collect": 0,
+          "multiPlay": -2,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "体を動かしてないと落ち着かない",
+    "choise": [
+      {
+        "text": "落ち着かない",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 2,
+          "it": -2,
+          "margin": -1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "そうでもない",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 1,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "むしろ動きたくない",
+        "status": {
+          "sociability": -1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": -2,
+          "it": 2,
+          "margin": 1,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "100万円、手に入ったら何に使いますか？",
+    "choise": [
+      {
+        "text": "お買い物",
+        "status": {
+          "sociability": 2,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 1,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": -2
+        }
+      },
+      {
+        "text": "貯金",
+        "status": {
+          "sociability": -1,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": -1,
+          "it": 0,
+          "margin": -1,
+          "costPerformance": 2
+        }
+      },
+      {
+        "text": "グルメ・旅行",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 0,
+          "it": -1,
+          "margin": -1,
+          "costPerformance": -1
+        }
+      },
+      {
+        "text": "自己投資",
+        "status": {
+          "sociability": 1,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 2,
+          "art": 0,
+          "sport": 0,
+          "it": 1,
+          "margin": 0,
+          "costPerformance": -1
+        }
+      }
+    ]
+  },
+  {
+    "ask": "映画やドラマを観て泣いたことある？",
+    "choise": [
+      {
+        "text": "いつも泣いてしまう",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 2,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "稀に泣いてしまうこともある",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 1,
+          "sport": 0,
+          "it": 0,
+          "margin": -0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "全然",
+        "status": {
+          "sociability": -2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": -2,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "わからないことがあった時どうする？",
+    "choise": [
+      {
+        "text": "とりあえずネットで検索",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 2,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "身近な人に疑問をぶつけてみる",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 2,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": -1,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "自力で考え続ける",
+        "status": {
+          "sociability": -1,
+          "collect": 0,
+          "multiPlay": -1,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": -1,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "すぐに別のことを考える",
+        "status": {
+          "sociability": -2,
+          "collect": 0,
+          "multiPlay": -1,
+          "selfPolishing": -1,
+          "art": 0,
+          "sport": 0,
+          "it": -2,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "「普通」という言葉から連想するものは？",
+    "choise": [
+      {
+        "text": "地味・退屈",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": -1,
+          "sport": 0,
+          "it": -1,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "平和・幸福",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 2,
+          "sport": 0,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "無難・安全",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 1,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "次の中で好きな動物は？",
+    "choise": [
+      {
+        "text": "パンダ",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "フクロウ",
+        "status": {
+          "sociability": 1,
+          "collect": 1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "狼",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 1,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "コウモリ",
+        "status": {
+          "sociability": -1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 2,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "無料で行けるツアーならどれを選ぶ？",
+    "choise": [
+      {
+        "text": "豪華客船で世界一周ツアー",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 1,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": -2
+        }
+      },
+      {
+        "text": "食べ放題ツアー",
+        "status": {
+          "sociability": 1,
+          "collect": -1,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": 0,
+          "sport": 2,
+          "it": 0,
+          "margin": -1,
+          "costPerformance": 0
+        }
+      },
+      {
+        "text": "宇宙の旅",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 2,
+          "art": 2,
+          "sport": 0,
+          "it": 0,
+          "margin": 0,
+          "costPerformance": 2
+        }
+      },
+      {
+        "text": "どこにもいかない",
+        "status": {
+          "sociability": -2,
+          "collect": 0,
+          "multiPlay": -1,
+          "selfPolishing": -1,
+          "art": 0,
+          "sport": 0,
+          "it": 1,
+          "margin": 2,
+          "costPerformance": 2
+        }
+      }
+    ]
+  },
+  {
+    "ask": "テレビはよく観る？",
+    "choise": [
+      {
+        "text": "いつも観ている",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": -1,
+          "selfPolishing": -2,
+          "art": -1,
+          "sport": -1,
+          "it": 1,
+          "margin": 2,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "たまに観る",
+        "status": {
+          "sociability": 0,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": -1,
+          "art": 0,
+          "sport": 0,
+          "it": 1,
+          "margin": 1,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "全然",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 2,
+          "art": 1,
+          "sport": 0,
+          "it": 1,
+          "margin": -1,
+          "costPerformance": 0
+        }
+      }
+    ]
+  },
+  {
+    "ask": "海外旅行はしたことある？",
+    "choise": [
+      {
+        "text": "何回も",
+        "status": {
+          "sociability": 2,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 2,
+          "art": 1,
+          "sport": 0,
+          "it": 0,
+          "margin": 2,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "１度だけ",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "まだ１度もない",
+        "status": {
+          "sociability": -1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 0,
+          "art": -1,
+          "sport": 0,
+          "it": 0,
+          "margin": 2,
+          "costPerformance": 2
+        }
+      }
+    ]
+  },
+  {
+    "ask": "早寝早起きは得意？",
+    "choise": [
+      {
+        "text": "苦手",
+        "status": {
+          "sociability": 0,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": -1,
+          "art": 0,
+          "sport": -1,
+          "it": 0,
+          "margin": -2,
+          "costPerformance": -1
+        }
+      },
+      {
+        "text": "たまになら",
+        "status": {
+          "sociability": 0,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 1,
+          "art": 0,
+          "sport": 0,
+          "it": 0,
+          "margin": 1,
+          "costPerformance": 1
+        }
+      },
+      {
+        "text": "得意",
+        "status": {
+          "sociability": 1,
+          "collect": 0,
+          "multiPlay": 0,
+          "selfPolishing": 2,
+          "art": 1,
+          "sport": 0,
+          "it": 0,
+          "margin": 2,
+          "costPerformance": 2
+        }
+      }
+    ]
+  }
+]

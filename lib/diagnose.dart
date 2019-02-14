@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'utils/json.dart';
+import 'package:hobbyapp/utils/json/hobby.dart';
+
+import 'dart:convert';
 
 class Diagnose extends StatefulWidget {
   @override
@@ -7,18 +9,30 @@ class Diagnose extends StatefulWidget {
 }
 
 class _DiagnoseState extends State<Diagnose> {
-  String _hobby = parseJsonFromAssets('assets/json/person.json');
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: ListView(
-          children: <Widget>[
-            
-          ],
+        child: FutureBuilder(
+          future: DefaultAssetBundle.of(context).loadString('assets/json/hobby.json'),
+          builder: (context, snapshot) {
+            var hobbyMap = jsonDecode(snapshot.data);
+            HobbyList dates = HobbyList.fromJson(hobbyMap);
+            return ListView.builder(
+              itemCount: dates.hobbys.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Text(dates.hobbys[index].name);
+              },
+            );
+          },
         )
       )
     );
+  }
+
+  _createHobbyList(aaaaaa) {
+    var text = Text(aaaaaa);
+    print(aaaaaa);
+    return text;
   }
 }

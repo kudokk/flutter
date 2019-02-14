@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'home.dart';
-import 'diagnose.dart';
+import 'package:hobbyapp/home.dart';
+import 'package:hobbyapp/diagnose.dart';
 
 void main() => runApp(MyApp());
 
