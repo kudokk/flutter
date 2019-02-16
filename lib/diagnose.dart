@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:hobbyapp/utils/json/hobby.dart';
+import 'package:hobbyapp/utils/json/quest.dart';
+import 'package:hobbyapp/utils/sattus/user.dart';
 
 import 'dart:convert';
+import 'dart:math';
 
 class Diagnose extends StatefulWidget {
   @override
@@ -9,6 +11,9 @@ class Diagnose extends StatefulWidget {
 }
 
 class _DiagnoseState extends State<Diagnose> {
+  User stock = User();
+  int newNum;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,42 +32,52 @@ class _DiagnoseState extends State<Diagnose> {
             color: Colors.white,
             height: 180,
             margin: EdgeInsets.only(top: 50),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Container(
-                  alignment: Alignment.center,
-                  height: 100,
-                  child: Text('text'),
-                ),
-                Container(
-                  height: 80,
-                  child: FutureBuilder(
-                    future: DefaultAssetBundle.of(context).loadString('assets/json/hobby.json'),
-                    builder: (context, snapshot) {
-                      var hobbyMap = jsonDecode(snapshot.data);
-                      HobbyList dates = HobbyList.fromJson(hobbyMap);
-                      return GridView.builder(
+              child: FutureBuilder(
+                future: DefaultAssetBundle.of(context).loadString('assets/json/quest.json'),
+                builder: (context, snapshot) {
+                  var hobbyMap = jsonDecode(snapshot.data);
+                  QuestList dates = QuestList.fromJson(hobbyMap);
+                  newNum = randomStock(dates.quests);
+                  return Column(
+                    children: <Widget>[
+                      Container(
+                        height: 80,
+                        child: Text('a')
+                      ),
+                      Container(
+                        height: 100,
+                        child: GridView.builder(
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                           childAspectRatio: 7.0,
                           crossAxisCount: 2,
                         ),
-                        itemCount: dates.hobbys.length,
+                        itemCount: dates.quests[newNum].choise.length,
                         itemBuilder: (BuildContext context, int index) {
                           return Text(
-                            dates.hobbys[index].name
+                            dates.quests[newNum].choise[index].text
                           );
                         },
-                      );
-                    },
-                  )
-                ),
-              ],
-            )
-          )
+                      )
+                      )
+                    ],
+                  );
+                },
+              )
+            ),
         ],
       )
     );
+  }
+
+  int randomStock(List array) {
+      var random = Random();
+      stock.stockList = new List();
+      var resultRandom = random.nextInt(array.length);
+      if(!stock.stockList.contains(resultRandom)) {
+        stock.setNum(resultRandom);
+        print(resultRandom);
+        return resultRandom;
+      }
+      return 0;
   }
 }
