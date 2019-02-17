@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hobbyapp/utils/json/quest.dart';
+import 'package:hobbyapp/utils/json/hobby.dart';
 import 'package:hobbyapp/ui/background.dart';
-import 'package:hobbyapp/utils/sattus/user.dart';
 
 import 'dart:convert';
 import 'dart:math';
@@ -12,8 +12,28 @@ class Diagnose extends StatefulWidget {
 }
 
 class _DiagnoseState extends State<Diagnose> {
-  User stock = User();
-  int newNum;
+  List _questList = new List();
+  int newNum = Random().nextInt(10);
+  int _questCount = 0;
+
+  void nextQuest(List array) {
+    _questCount++;
+    setState(() {
+      newNum = nextNum(array);   
+    });
+  }
+
+  int nextNum(List array) {
+    var num = array.length == null ? 2 : array.length;
+    for(var i = 0; i < 100; i++) {
+      var resultRandom = Random().nextInt(num);
+      if(!_questList.contains(resultRandom)) {
+        _questList.add(resultRandom);
+        return resultRandom;
+      }
+    }
+    return 0;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -33,9 +53,8 @@ class _DiagnoseState extends State<Diagnose> {
                   FutureBuilder(
                     future: DefaultAssetBundle.of(context).loadString('assets/json/quest.json'),
                     builder: (context, snapshot) {
-                      var hobbyMap = jsonDecode(snapshot.data);
-                      QuestList dates = QuestList.fromJson(hobbyMap);
-                      newNum = firstRandomStock(dates.quests);
+                      var questMap = jsonDecode(snapshot.data);
+                      QuestList dates = QuestList.fromJson(questMap);
                       return Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -70,17 +89,15 @@ class _DiagnoseState extends State<Diagnose> {
                                 ),
                                 child: FlatButton(
                                   onPressed: () {
-                                    print(newNum);
-                                    newNum = firstRandomStock(dates.quests);
-                                    print(newNum);
+                                    nextQuest(dates.quests);
                                   },
                                   child: Text(
-                                  dates.quests[newNum].choise[index].text,
-                                  style: TextStyle(
-                                    fontSize: 12.0,
-                                  ),
-                                  textAlign: TextAlign.center,
-                                )
+                                    dates.quests[newNum].choise[index].text,
+                                    style: TextStyle(
+                                      fontSize: 12.0,
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  )
                                 )
                               );
                             },
@@ -97,9 +114,41 @@ class _DiagnoseState extends State<Diagnose> {
                   child: Column(
                     children: <Widget>[
                       Container(
-                        child: Text(
-                          'data'
-                        ),
+                        child: FutureBuilder(
+                          future: DefaultAssetBundle.of(context).loadString('assets/json/hobby.json'),
+                          builder: (context, snapshot) {
+                            var hobbyMap = jsonDecode(snapshot.data);
+                            HobbyList dates = HobbyList.fromJson(hobbyMap);
+                            return Container(
+                              height: 110,
+                              child: GridView.builder(
+                                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                    childAspectRatio: 5.0,
+                                    crossAxisCount: 2,
+                                ),
+                                itemCount: dates.hobbys.length,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return Container(
+                                    margin: EdgeInsets.only(
+                                      top: 10.0,
+                                      left: 10.0,
+                                      right: 10.0
+                                    ),
+                                    child: FlatButton(
+                                      onPressed: () {
+                                        // nextQuest(dates.hobbys);
+                                        print('click');
+                                      },
+                                      child: Text(
+                                        dates.hobbys[index].name
+                                      ),
+                                    ),
+                                  );
+                                },
+                              )
+                            );
+                          },
+                        )
                       )
                     ],
                   ),
@@ -110,27 +159,5 @@ class _DiagnoseState extends State<Diagnose> {
         ],
       )
     );
-  }
-
-  int firstRandomStock(List array) {
-      var random = Random();
-      stock.stockList = new List();
-      var resultRandom = random.nextInt(array.length);
-      if(!stock.stockList.contains(resultRandom)) {
-        stock.setNum(resultRandom);
-        return resultRandom;
-      }
-      return 0;
-  }
-
-  int randomStock(List array) {
-    var random = Random();
-    var resultRandom = random.nextInt(array.length);
-      if(!stock.stockList.contains(resultRandom)) {
-        stock.setNum(resultRandom);
-        print(resultRandom);
-        return resultRandom;
-      }
-      return 0;
   }
 }
