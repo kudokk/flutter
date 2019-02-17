@@ -1,5 +1,5 @@
 class User {
-  List<int> stockList = new List<int>();
+  List<int> stockList;
 
   User({this.stockList});
 

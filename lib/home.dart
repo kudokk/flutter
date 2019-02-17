@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hobbyapp/ui/background.dart';
 
 class MyHomePage extends StatefulWidget {
 
@@ -39,14 +40,7 @@ class _MyHomePageState extends State<MyHomePage>
       backgroundColor: Color.fromRGBO(255, 195, 0, 1.0),
       body: Stack(
         children: <Widget>[
-          Container(
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/background/sheet.png'),
-                repeat: ImageRepeat.repeat
-              )
-            )
-          ),
+          backGround,
           Container(
             color: Color.fromRGBO(255, 195, 0, 1.0),
             height: 300,
