@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hobbyapp/utils/sattus/user.dart';
 import 'package:hobbyapp/utils/json/quest.dart';
 import 'package:hobbyapp/utils/json/hobby.dart';
 import 'package:hobbyapp/ui/background.dart';
@@ -15,10 +16,11 @@ class _DiagnoseState extends State<Diagnose> {
   List _questList = new List();
   int newNum = Random().nextInt(10);
   int _questCount = 0;
+  User user = new User();
 
   void nextQuest(List array) {
-    _questCount++;
     setState(() {
+      _questCount++;
       newNum = nextNum(array);   
     });
   }
@@ -33,6 +35,48 @@ class _DiagnoseState extends State<Diagnose> {
       }
     }
     return 0;
+  }
+
+  void updateStatus() {
+    statusMap['sociability'] = user.sociability;
+    statusMap['collect'] = user.collect;
+    statusMap['multiPlay'] = user.multiPlay;
+    statusMap['selfPolishing'] = user.selfPolishing;
+    statusMap['art'] = user.art;
+    statusMap['sport'] = user.sport;
+    statusMap['it'] = user.it;
+    statusMap['margin'] = user.margin;
+    statusMap['costPerformance'] = user.costPerformance;
+  }
+
+  String getStatus() {
+    // 最大値取得
+    int max = -1000;
+    // 最低値取得
+    int min = 1000;
+    statusMap.forEach((key, value) {
+      if (max < value) {
+        max = value;
+      }
+      if (min > value) {
+        min = value;
+      }
+    });
+    // 絶対値の最大取得
+    int result;
+    if(min < 0) {
+      result = min * -1 <= max ? max : min;
+    } else {
+      result = min <= max ? max: min;
+    }
+    // 最大値のstatus配列取得
+    List<String> status = new List();
+    statusMap.forEach((key, value) {
+      if(result == value) {
+        status.add(key);
+      }
+    });
+    return status[Random().nextInt(status.length)];
   }
 
   @override
@@ -89,6 +133,8 @@ class _DiagnoseState extends State<Diagnose> {
                                 ),
                                 child: FlatButton(
                                   onPressed: () {
+                                    user.plusStatus(dates.quests[newNum].choise[index].status);
+                                    updateStatus();
                                     nextQuest(dates.quests);
                                   },
                                   child: Text(
@@ -117,36 +163,40 @@ class _DiagnoseState extends State<Diagnose> {
                         child: FutureBuilder(
                           future: DefaultAssetBundle.of(context).loadString('assets/json/hobby.json'),
                           builder: (context, snapshot) {
-                            var hobbyMap = jsonDecode(snapshot.data);
-                            HobbyList dates = HobbyList.fromJson(hobbyMap);
-                            return Container(
-                              height: 110,
-                              child: GridView.builder(
-                                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                            if(snapshot.data != null && _questCount >= 10) {
+                              var hobbyMap = jsonDecode(snapshot.data);
+                              HobbyList dates = HobbyList.fromJson(hobbyMap);
+                              return Container(
+                                height: 110,
+                                child: GridView.builder(
+                                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                                     childAspectRatio: 5.0,
                                     crossAxisCount: 2,
-                                ),
-                                itemCount: dates.hobbys.length,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return Container(
-                                    margin: EdgeInsets.only(
-                                      top: 10.0,
-                                      left: 10.0,
-                                      right: 10.0
-                                    ),
-                                    child: FlatButton(
-                                      onPressed: () {
-                                        // nextQuest(dates.hobbys);
-                                        print('click');
-                                      },
-                                      child: Text(
-                                        dates.hobbys[index].name
+                                  ),
+                                  itemCount: dates.hobbys.length,
+                                  itemBuilder: (BuildContext context, int index) {
+                                    return Container(
+                                      margin: EdgeInsets.only(
+                                        top: 10.0,
+                                        left: 10.0,
+                                        right: 10.0
                                       ),
-                                    ),
-                                  );
-                                },
-                              )
-                            );
+                                      child: FlatButton(
+                                        onPressed: () {
+                                          // nextQuest(dates.hobbys);
+                                          print('click');
+                                        },
+                                        child: Text(
+                                          dates.hobbys[index].name
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                )
+                              );
+                            } else {
+                              return Container();
+                            }
                           },
                         )
                       )

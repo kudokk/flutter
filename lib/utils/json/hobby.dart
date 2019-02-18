@@ -13,13 +13,42 @@ class HobbyList {
 
 class Hobby {
   final String name;
+  final status;
 
-  Hobby({this.name});
+  Hobby({this.name, this.status});
 
-  Hobby.fromJson(Map<String, dynamic> json) 
-    : name = json['name'];
+  factory Hobby.fromJson(Map<String, dynamic> json) {
+    return Hobby(
+      name: json['name'],
+      status: Status.fromJson(json['status'])
+    );
+  }
+}
 
-  Map<String, dynamic> toJson() => {
-    'name': name
-  };
+class Status {
+  final int sociability;
+  final int collect;
+  final int multiPlay;
+  final int selfPolishing;
+  final int art;
+  final int sport;
+  final int it;
+  final int margin;
+  final int costPerformance;
+
+  Status({this.sociability, this.collect, this.multiPlay, this.selfPolishing, this.art, this.sport, this.it, this.margin, this.costPerformance});
+
+  factory Status.fromJson(Map<String, dynamic> json) {
+    return Status(
+      sociability: json['sociability'],
+      collect: json['collect'],
+      multiPlay: json['multiPlay'],
+      selfPolishing: json['selfPolishing'],
+      art: json['art'],
+      sport: json['sport'],
+      it: json['it'],
+      margin: json['margin'],
+      costPerformance: json['costPerformance']
+    );
+  }
 }
