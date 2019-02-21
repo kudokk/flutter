@@ -19,6 +19,7 @@ class _DiagnoseState extends State<Diagnose> {
   int newNum = Random().nextInt(10);
   int _questCount = 0;
   User user = new User();
+  User userRank = new User();
   Max cMax = new Max();
   Min cMin = new Min();
 
@@ -40,6 +41,18 @@ class _DiagnoseState extends State<Diagnose> {
     return 0;
   }
 
+  List randoms(List array, int len) {
+    List numList = new List();
+    while(len > 0) {
+      int num = Random().nextInt(array.length);
+      if (!numList.contains(num)) {
+        numList.add(num);
+        len--;
+      }
+    }
+    return numList;
+  }
+
   Future<String> _getQuestJson() async {
     return await DefaultAssetBundle.of(context).loadString('assets/json/quest.json');
   }
@@ -48,34 +61,85 @@ class _DiagnoseState extends State<Diagnose> {
     return await rootBundle.loadString('assets/json/hobby.json');
   }
 
-  String getStatus() {
+  Map getStatus() {
     // 最大値取得
     int max = -1000;
-    // 最低値取得
-    int min = 1000;
-    user.statusMap.forEach((key, value) {
+    List sortList = new List();
+    userRank.statusMap.forEach((key, value) {
+      sortList.add(value);
       if (max < value) {
         max = value;
       }
-      if (min > value) {
-        min = value;
-      }
     });
-    // 絶対値の最大取得
-    int result;
-    if(min < 0) {
-      result = min * -1 <= max ? max : min;
-    } else {
-      result = min <= max ? max: min;
-    }
+    print(max);
     // 最大値のstatus配列取得
-    List<String> status = new List();
-    user.statusMap.forEach((key, value) {
-      if(result == value) {
+    List status = new List();
+    Map matchResult = new Map();
+    userRank.statusMap.forEach((key, value) {
+      if (max == value) {
         status.add(key);
       }
     });
-    return status[Random().nextInt(status.length)];
+    if(status.length >= 2) {
+      print('status >= 2 $status');
+      // ２つランダム
+      List matchIndex = randoms(status, 2);
+      Map one = {status[matchIndex[0]]: userRank.statusMap[status[matchIndex[0]]]};
+      Map two = {status[matchIndex[1]]: userRank.statusMap[status[matchIndex[1]]]};
+      matchResult.addAll(one);
+      matchResult.addAll(two);
+    } else if(status.length == 1) {
+      print('status == 1 $status');
+      // 次の値で
+      Map one = {status[0]: userRank.statusMap[status[0]]};
+      matchResult.addAll(one);
+      List result = new List();
+      sortList.sort();
+      int max = sortList[sortList.length - 2];
+      userRank.statusMap.forEach((key, value) {
+        if (max == value) {
+          result.add(key);
+        }
+      });
+      int random = randoms(result, 1)[0];
+      Map two = {result[random]: userRank.statusMap[result[random]]};
+      matchResult.addAll(two);
+    }
+    // ２つのkey, valueを返したい。
+    return matchResult;
+  }
+
+  List getAttribute(int max, int min) {
+    List attribute = new List();
+    int sum = min >=0 ? max + min : max - min;
+    int n = 4;
+    for(int i = 0; i < n - 1; i++) {
+      double num = (sum + i) / n;
+      attribute.add(num.toInt());
+    }
+    List punctuation = new List();
+    punctuation.add(min);
+    for(int i = 0; i < n - 1; i++) {
+      punctuation.add(min + attribute[i]);
+      min = punctuation[i + 1];
+    }
+    punctuation.add(max);
+    return punctuation;
+  }
+
+  void getUserRank(List array) {
+    user.statusMap.forEach((key, value) {
+      // 分配配列作成
+      List attributeList = getAttribute(cMax.statusMap[key], cMin.statusMap[key]);
+      // ユーザランク取得
+      for(int j = 0; j < attributeList.length; j++) {
+        if (user.statusMap[key] <= attributeList[j]) {
+          userRank.statusMap[key] = j;
+          break;
+        }
+      }
+    });
+    Map recoStatus = getStatus();
   }
 
   @override
@@ -132,12 +196,13 @@ class _DiagnoseState extends State<Diagnose> {
                                 ),
                                 child: FlatButton(
                                   onPressed: () {
-                                    _questCount++;
                                     calculateMinMax(dates.quests[newNum].choise);
                                     user.plusStatus(dates.quests[newNum].choise[index].status);
+                                    _questCount++;
+                                    if (_questCount >= 10) {
+                                      getUserRank(dates.quests[newNum].choise);
+                                    }
                                     nextQuest(dates.quests);
-                                    print(cMin.statusMap['sociability']);
-                                    print(cMax.statusMap['sociability']);
                                   },
                                   child: Text(
                                     dates.quests[newNum].choise[index].text,
