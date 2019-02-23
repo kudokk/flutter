@@ -5,6 +5,7 @@ import 'package:hobbyapp/utils/status/hobbyRank.dart';
 import 'package:hobbyapp/utils/json/quest.dart';
 import 'package:hobbyapp/utils/json/hobby.dart';
 import 'package:hobbyapp/ui/background.dart';
+import 'package:hobbyapp/recognize.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
@@ -162,7 +163,7 @@ class _DiagnoseState extends State<Diagnose> {
           // questArea
           Container(
             color: Colors.white,
-            height: 234,
+            height: 408,
             margin: EdgeInsets.only(top: 50),
               child: Column(
                 children: <Widget>[
@@ -177,32 +178,72 @@ class _DiagnoseState extends State<Diagnose> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
                           Container(
-                            child: Text(
-                              dates.quests[newNum].ask,
-                              style: TextStyle(
-                                fontSize: 16.0
-                              ),
-                              textAlign: TextAlign.center,
+                            padding: EdgeInsets.only(
+                              top: 30.0,
+                              bottom: 10.0
+                            ),
+                            margin: EdgeInsets.only(bottom: 30.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                Container(
+                                  margin: EdgeInsets.only(right: 15.0),
+                                  child: Text(
+                                    'Q.',
+                                    style: TextStyle(
+                                      color: Color.fromRGBO(255, 165, 0, 1.0),
+                                      fontSize: 20.0,
+                                      fontFamily: 'Impact'
+                                    ),
+                                  )
+                                ),
+                                Container(
+                                  margin: EdgeInsets.only(right: 25.0),
+                                  child: Text(
+                                    dates.quests[newNum].ask,
+                                    style: TextStyle(
+                                      decoration: TextDecoration.underline,
+                                      fontSize: 15.0
+                                    ),
+                                    textAlign: TextAlign.center,
+                                  ),
+                                )
+                              ]
                             )
                           ),
                           Container(
+                            margin: EdgeInsets.only(left: 15.0),
+                            child: Text(
+                              'A...',
+                              style: TextStyle(
+                                fontSize: 20.0,
+                                fontFamily: 'Impact',
+                                color: Color.fromRGBO(255, 73, 0, 1.0)
+                              ),
+                            ),
+                          ),
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border(bottom: BorderSide(width: 1.0, color: Colors.grey))
+                            ),
                             height: 110,
                             child: GridView.builder(
                             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                childAspectRatio: 5.0,
+                                childAspectRatio: 7.0,
                                 crossAxisCount: 2,
+                                mainAxisSpacing: 10.0
                             ),
                             itemCount: dates.quests[newNum].choise.length,
                             itemBuilder: (BuildContext context, int index) {
                               return Container(
                                 margin: EdgeInsets.only(
-                                  top: 10.0,
                                   left: 10.0,
                                   right: 10.0
                                 ),
                                 decoration: BoxDecoration(
                                   border: Border.all(width: 1.0),
-                                  borderRadius: BorderRadius.circular(30.0)
+                                  borderRadius: BorderRadius.circular(30.0),
+                                  color: Color.fromRGBO(255, 242, 218, 1.0)
                                 ),
                                 child: FlatButton(
                                   onPressed: () {
@@ -220,7 +261,7 @@ class _DiagnoseState extends State<Diagnose> {
                                   child: Text(
                                     dates.quests[newNum].choise[index].text,
                                     style: TextStyle(
-                                      fontSize: 12.0,
+                                      fontSize: 10.0,
                                     ),
                                     textAlign: TextAlign.center,
                                   )
@@ -236,10 +277,24 @@ class _DiagnoseState extends State<Diagnose> {
                 // hobbyArea
                 Container(
                   color: Colors.white,
-                  height: 100,
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Container(
+                        margin: EdgeInsets.only(top: 40, left: 15.0),
+                        child: Text(
+                          'あなたにオススメの趣味は...',
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            fontFamily: 'Impact',
+                          ),
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          border: Border(bottom: BorderSide(width: 1.0, color: Colors.grey))
+                        ),
                         child: FutureBuilder(
                           future: DefaultAssetBundle.of(context).loadString('assets/json/hobby.json'),
                           builder: (context, snapshot) {
@@ -248,26 +303,37 @@ class _DiagnoseState extends State<Diagnose> {
                               HobbyList dates = HobbyList.fromJson(hobbyMap);
                               return Container(
                                 height: 110,
+                                margin: EdgeInsets.only(bottom:  10.0),
                                 child: GridView.builder(
                                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                    childAspectRatio: 5.0,
-                                    crossAxisCount: 2,
+                                    childAspectRatio: 12.0,
+                                    crossAxisCount: 1,
+                                    mainAxisSpacing: 10.0
                                   ),
                                   itemCount: recoHobbyIndex.length,
                                   itemBuilder: (BuildContext context, int index) {
                                     return Container(
                                       margin: EdgeInsets.only(
-                                        top: 10.0,
                                         left: 10.0,
                                         right: 10.0
                                       ),
+                                      decoration: BoxDecoration(
+                                        border: Border.all(width: 0.5),
+                                        color: Color.fromRGBO(255, 190, 72, 1.0)
+                                      ),
                                       child: FlatButton(
                                         onPressed: () {
-                                          // nextQuest(dates.hobbys);
                                           print('click');
+                                          Navigator.push(context, new MaterialPageRoute<Null>(
+                                            settings: const RouteSettings(name: "/recognize"),
+                                            builder: (BuildContext context) => new Recognize(dates.hobbys, recoHobbyIndex, index)
+                                          ));
                                         },
                                         child: Text(
-                                          dates.hobbys[recoHobbyIndex[index]].name
+                                          dates.hobbys[recoHobbyIndex[index]].name,
+                                          style: TextStyle(
+                                            fontSize: 16.0
+                                          ),
                                         ),
                                       ),
                                     );

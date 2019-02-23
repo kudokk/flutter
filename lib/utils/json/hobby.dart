@@ -14,13 +14,15 @@ class HobbyList {
 class Hobby {
   final String name;
   final status;
+  final String desc;
 
-  Hobby({this.name, this.status});
+  Hobby({this.name, this.status, this.desc});
 
   factory Hobby.fromJson(Map<String, dynamic> json) {
     return Hobby(
       name: json['name'],
-      status: Status.fromJson(json['status'])
+      status: Status.fromJson(json['status']),
+      desc: json['desc']
     );
   }
 }
