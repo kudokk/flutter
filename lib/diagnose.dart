@@ -276,32 +276,29 @@ class _DiagnoseState extends State<Diagnose> {
                 ),
                 // hobbyArea
                 Container(
-                  color: Colors.white,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.stretch,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Container(
-                        margin: EdgeInsets.only(top: 40, left: 15.0),
-                        child: Text(
-                          'あなたにオススメの趣味は...',
-                          style: TextStyle(
-                            fontSize: 14.0,
-                            fontFamily: 'Impact',
-                          ),
-                        ),
-                      ),
-                      Container(
-                        decoration: BoxDecoration(
-                          border: Border(bottom: BorderSide(width: 1.0, color: Colors.grey))
-                        ),
-                        child: FutureBuilder(
-                          future: DefaultAssetBundle.of(context).loadString('assets/json/hobby.json'),
-                          builder: (context, snapshot) {
-                            if(snapshot.data != null && _questCount >= 10) {
-                              var hobbyMap = jsonDecode(snapshot.data);
-                              HobbyList dates = HobbyList.fromJson(hobbyMap);
-                              return Container(
+                  child: FutureBuilder(
+                    future: DefaultAssetBundle.of(context).loadString('assets/json/hobby.json'),
+                    builder: (context, snapshot) {
+                      if(snapshot.data != null && _questCount >= 10) {
+                        var hobbyMap = jsonDecode(snapshot.data);
+                        HobbyList dates = HobbyList.fromJson(hobbyMap);
+                        return Container(
+                          color: Colors.white,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.only(top: 40, left: 15.0),
+                                child: Text(
+                                  'あなたにオススメの趣味は...',
+                                  style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontFamily: 'Impact',
+                                  ),
+                                ),
+                              ),
+                              Container(
                                 height: 110,
                                 margin: EdgeInsets.only(bottom:  10.0),
                                 child: GridView.builder(
@@ -337,22 +334,32 @@ class _DiagnoseState extends State<Diagnose> {
                                         ),
                                       ),
                                     );
-                                  },
+                                  }
                                 )
-                              );
-                            } else {
-                              return Container();
-                            }
-                          },
-                        )
-                      )
-                    ],
-                  ),
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border(bottom: BorderSide(width: 1.0, color: Colors.grey))
+                                ),
+                              )
+                            ]
+                          )
+                        );
+                      } else {
+                        return Container(
+                          margin: EdgeInsets.only(top: 40),
+                          child: Text(
+                            '診断に必要な情報が足りません！ 質問に直感でお答えください'
+                          )
+                        );
+                      }
+                    },
+                  )
                 )
-              ],
+              ]
             )
           )
-        ],
+        ]
       )
     );
   }
