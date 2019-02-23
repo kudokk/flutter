@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:hobbyapp/utils/sattus/user.dart';
-import 'package:hobbyapp/utils/sattus/calculate.dart';
+import 'package:hobbyapp/utils/status/user.dart';
+import 'package:hobbyapp/utils/status/calculate.dart';
+import 'package:hobbyapp/utils/status/hobbyRank.dart';
 import 'package:hobbyapp/utils/json/quest.dart';
 import 'package:hobbyapp/utils/json/hobby.dart';
 import 'package:hobbyapp/ui/background.dart';
@@ -22,6 +23,8 @@ class _DiagnoseState extends State<Diagnose> {
   User userRank = new User();
   Max cMax = new Max();
   Min cMin = new Min();
+  HobbyRank rankMap = new HobbyRank.addList();
+  List recoHobbyIndex = new List();
 
   void nextQuest(List array) {
     setState(() {
@@ -127,7 +130,7 @@ class _DiagnoseState extends State<Diagnose> {
     return punctuation;
   }
 
-  void getUserRank(List array) {
+  void setRecoHobby(List array) {
     user.statusMap.forEach((key, value) {
       // 分配配列作成
       List attributeList = getAttribute(cMax.statusMap[key], cMin.statusMap[key]);
@@ -140,6 +143,13 @@ class _DiagnoseState extends State<Diagnose> {
       }
     });
     Map recoStatus = getStatus();
+    recoStatus.forEach((key, value) {
+      print(key);
+      print(value);
+      print(rankMap.statusMap[key]);
+      recoHobbyIndex = randoms(rankMap.statusMap[key][value], 2);
+      print(recoHobbyIndex);
+    });
   }
 
   @override
@@ -196,11 +206,14 @@ class _DiagnoseState extends State<Diagnose> {
                                 ),
                                 child: FlatButton(
                                   onPressed: () {
+                                    if (_questCount == 0) {
+                                      getHobbyRank();
+                                    }
                                     calculateMinMax(dates.quests[newNum].choise);
                                     user.plusStatus(dates.quests[newNum].choise[index].status);
                                     _questCount++;
                                     if (_questCount >= 10) {
-                                      getUserRank(dates.quests[newNum].choise);
+                                      setRecoHobby(dates.quests[newNum].choise);
                                     }
                                     nextQuest(dates.quests);
                                   },
@@ -240,7 +253,7 @@ class _DiagnoseState extends State<Diagnose> {
                                     childAspectRatio: 5.0,
                                     crossAxisCount: 2,
                                   ),
-                                  itemCount: dates.hobbys.length,
+                                  itemCount: recoHobbyIndex.length,
                                   itemBuilder: (BuildContext context, int index) {
                                     return Container(
                                       margin: EdgeInsets.only(
@@ -254,7 +267,7 @@ class _DiagnoseState extends State<Diagnose> {
                                           print('click');
                                         },
                                         child: Text(
-                                          dates.hobbys[index].name
+                                          dates.hobbys[recoHobbyIndex[index]].name
                                         ),
                                       ),
                                     );
@@ -283,79 +296,25 @@ class _DiagnoseState extends State<Diagnose> {
     List hobbyMap = jsonDecode(hobby.toString());
     HobbyList dates = HobbyList.fromJson(hobbyMap);
 
-    List sociabilityInside0 = new List();
-    List sociabilityInside1 = new List();
-    List sociabilityInside2 = new List();
-    List sociabilityInside3 = new List();
-    List sociabilityInside4 = new List();
-    List sociability = [sociabilityInside0, sociabilityInside1, sociabilityInside2, sociabilityInside3, sociabilityInside4];
-    List collect0 = new List();
-    List collect1 = new List();
-    List collect2 = new List();
-    List collect3 = new List();
-    List collect4 = new List();
-    List collect = [collect0, collect1, collect2, collect3, collect4];
-    List multiPlay0 = new List();
-    List multiPlay1 = new List();
-    List multiPlay2 = new List();
-    List multiPlay3 = new List();
-    List multiPlay4 = new List();
-    List multiPlay = [multiPlay0, multiPlay1, multiPlay2, multiPlay3, multiPlay4];
-    List selfPolishing0 = new List();
-    List selfPolishing1 = new List();
-    List selfPolishing2 = new List();
-    List selfPolishing3 = new List();
-    List selfPolishing4 = new List();
-    List selfPolishing = [selfPolishing0, selfPolishing1, selfPolishing2, selfPolishing3, selfPolishing4];
-    List art0 = new List();
-    List art1 = new List();
-    List art2 = new List();
-    List art3 = new List();
-    List art4 = new List();
-    List art = [art0, art1, art2, art3, art4];
-    List sport0 = new List();
-    List sport1 = new List();
-    List sport2 = new List();
-    List sport3 = new List();
-    List sport4 = new List();
-    List sport = [sport0, sport1, sport2, sport3, sport4];
-    List it0 = new List();
-    List it1 = new List();
-    List it2 = new List();
-    List it3 = new List();
-    List it4 = new List();
-    List it = [it0, it1, it2, it3, it4];
-    List margin0 = new List();
-    List margin1 = new List();
-    List margin2 = new List();
-    List margin3 = new List();
-    List margin4 = new List();
-    List margin = [margin0, margin1, margin2, margin3, margin4];
-    List costPerformance0 = new List();
-    List costPerformance1 = new List();
-    List costPerformance2 = new List();
-    List costPerformance3 = new List();
-    List costPerformance4 = new List();
-    List costPerformance = [costPerformance0, costPerformance1, costPerformance2, costPerformance3, costPerformance4];
     for (var i = 0; i < dates.hobbys.length; i++) {
       int sociabilityIndex = dates.hobbys[i].status.sociability + 2;
-      sociability[sociabilityIndex].add(i);
+      rankMap.statusMap['sociability'][sociabilityIndex].add(i);
       int collectIndex = dates.hobbys[i].status.collect + 2;
-      collect[collectIndex].add(i);
+      rankMap.statusMap['collect'][collectIndex].add(i);
       int multiPlayIndex = dates.hobbys[i].status.multiPlay + 2;
-      multiPlay[multiPlayIndex].add(i);
+      rankMap.statusMap['multiPlay'][multiPlayIndex].add(i);
       int selfPolishingIndex = dates.hobbys[i].status.selfPolishing + 2;
-      selfPolishing[selfPolishingIndex].add(i);
+      rankMap.statusMap['selfPolishing'][selfPolishingIndex].add(i);
       int artIndex = dates.hobbys[i].status.art + 2;
-      art[artIndex].add(i);
+      rankMap.statusMap['art'][artIndex].add(i);
       int sportIndex = dates.hobbys[i].status.sport + 2;
-      sport[sportIndex].add(i);
+      rankMap.statusMap['sport'][sportIndex].add(i);
       int itIndex = dates.hobbys[i].status.it + 2;
-      it[itIndex].add(i);
+      rankMap.statusMap['it'][itIndex].add(i);
       int marginIndex = dates.hobbys[i].status.margin + 2;
-      margin[marginIndex].add(i);
+      rankMap.statusMap['margin'][marginIndex].add(i);
       int costPerformanceIndex = dates.hobbys[i].status.costPerformance + 2;
-      costPerformance[costPerformanceIndex].add(i);
+      rankMap.statusMap['costPerformance'][costPerformanceIndex].add(i);
     }
   }
 
