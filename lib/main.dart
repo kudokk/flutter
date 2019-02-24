@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       ),
       home: MyHomePage(),
       routes: <String, WidgetBuilder> {
+        '/home': (BuildContext context) => new MyHomePage(),
         '/diagnose': (BuildContext context) => new Diagnose(),
       },
     );

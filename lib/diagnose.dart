@@ -5,6 +5,7 @@ import 'package:hobbyapp/utils/status/hobbyRank.dart';
 import 'package:hobbyapp/utils/json/quest.dart';
 import 'package:hobbyapp/utils/json/hobby.dart';
 import 'package:hobbyapp/ui/background.dart';
+import 'package:hobbyapp/ui/backButtonInside.dart';
 import 'package:hobbyapp/recognize.dart';
 
 import 'package:flutter/services.dart' show rootBundle;
@@ -42,7 +43,7 @@ class _DiagnoseState extends State<Diagnose> {
         return resultRandom;
       }
     }
-    return 0;
+    return -1;
   }
 
   List randoms(List array, int len) {
@@ -145,12 +146,32 @@ class _DiagnoseState extends State<Diagnose> {
     });
     Map recoStatus = getStatus();
     recoStatus.forEach((key, value) {
-      print(key);
-      print(value);
       print(rankMap.statusMap[key]);
       recoHobbyIndex = randoms(rankMap.statusMap[key][value], 2);
-      print(recoHobbyIndex);
     });
+  }
+
+  List<Color> getGradientColors(double num) {
+    Color white = Colors.white;
+    Color orange = Color.fromRGBO(255, 190, 72, 1.0);
+    List<Color> colors = new List<Color>();
+    for (int i = 0; i < 5; i++) {
+      colors.add(white);
+    }
+    int whiteRemoveNum = (num / 10).round();
+    if (whiteRemoveNum < 5) {
+      for (int i = 0; i < whiteRemoveNum; i++) {
+        colors.add(orange);
+      }
+    } else {
+      for (int i = 0; i < 5; i++) {
+        colors.add(orange);
+      }
+      for (int i = 0; i < whiteRemoveNum - 5; i++) {
+        colors.remove(white);
+      }
+    }
+    return colors;
   }
 
   @override
@@ -163,7 +184,7 @@ class _DiagnoseState extends State<Diagnose> {
           // questArea
           Container(
             color: Colors.white,
-            height: 408,
+            height: 462,
             margin: EdgeInsets.only(top: 50),
               child: Column(
                 children: <Widget>[
@@ -171,107 +192,134 @@ class _DiagnoseState extends State<Diagnose> {
                   FutureBuilder(
                     future: _getQuestJson(),
                     builder: (context, snapshot) {
-                      var questMap = jsonDecode(snapshot.data);
-                      QuestList dates = QuestList.fromJson(questMap);
-                      return Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            padding: EdgeInsets.only(
-                              top: 30.0,
-                              bottom: 10.0
+                      if (newNum >= 0) {
+                        var questMap = jsonDecode(snapshot.data);
+                        QuestList dates = QuestList.fromJson(questMap);
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.only(
+                                top: 30.0,
+                                bottom: 10.0
+                              ),
+                              margin: EdgeInsets.only(bottom: 30.0),
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: <Widget>[
+                                  Container(
+                                    margin: EdgeInsets.only(right: 15.0),
+                                    child: Text(
+                                      'Q.',
+                                      style: TextStyle(
+                                        color: Color.fromRGBO(255, 165, 0, 1.0),
+                                        fontSize: 20.0,
+                                        fontFamily: 'Impact'
+                                      ),
+                                    )
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(right: 25.0),
+                                    child: Text(
+                                      dates.quests[newNum].ask,
+                                      style: TextStyle(
+                                        decoration: TextDecoration.underline,
+                                        fontSize: 15.0
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  )
+                                ]
+                              )
                             ),
-                            margin: EdgeInsets.only(bottom: 30.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Container(
-                                  margin: EdgeInsets.only(right: 15.0),
+                                  margin: EdgeInsets.only(left: 15.0),
                                   child: Text(
-                                    'Q.',
+                                    'A...',
                                     style: TextStyle(
-                                      color: Color.fromRGBO(255, 165, 0, 1.0),
                                       fontSize: 20.0,
-                                      fontFamily: 'Impact'
+                                      fontFamily: 'Impact',
+                                      color: Color.fromRGBO(255, 73, 0, 1.0)
                                     ),
-                                  )
+                                  ),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.only(right: 25.0),
+                                  padding: EdgeInsets.all(10.0),
+                                  decoration: BoxDecoration(
+                                    color: Color.fromRGBO(255, 190, 72, 1.0),
+                                    shape: BoxShape.circle,
+                                    gradient: LinearGradient(
+                                      colors: getGradientColors((_questCount / dates.quests.length * 1000).round() / 10),
+                                      begin: Alignment.topCenter,
+                                      end: Alignment.bottomCenter
+                                    )
+                                  ),
                                   child: Text(
-                                    dates.quests[newNum].ask,
+                                    ((_questCount / dates.quests.length * 1000).round() / 10).toString() + '%',
                                     style: TextStyle(
-                                      decoration: TextDecoration.underline,
-                                      fontSize: 15.0
+                                      fontSize: 10.0
                                     ),
-                                    textAlign: TextAlign.center,
                                   ),
                                 )
-                              ]
-                            )
-                          ),
-                          Container(
-                            margin: EdgeInsets.only(left: 15.0),
-                            child: Text(
-                              'A...',
-                              style: TextStyle(
-                                fontSize: 20.0,
-                                fontFamily: 'Impact',
-                                color: Color.fromRGBO(255, 73, 0, 1.0)
+                              ],
+                            ),
+                            Container(
+                              decoration: BoxDecoration(
+                                border: Border(bottom: BorderSide(width: 1.0, color: Colors.grey))
                               ),
-                            ),
-                          ),
-                          Container(
-                            decoration: BoxDecoration(
-                              border: Border(bottom: BorderSide(width: 1.0, color: Colors.grey))
-                            ),
-                            height: 110,
-                            child: GridView.builder(
-                            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                childAspectRatio: 7.0,
-                                crossAxisCount: 2,
-                                mainAxisSpacing: 10.0
-                            ),
-                            itemCount: dates.quests[newNum].choise.length,
-                            itemBuilder: (BuildContext context, int index) {
-                              return Container(
-                                margin: EdgeInsets.only(
-                                  left: 10.0,
-                                  right: 10.0
-                                ),
-                                decoration: BoxDecoration(
-                                  border: Border.all(width: 1.0),
-                                  borderRadius: BorderRadius.circular(30.0),
-                                  color: Color.fromRGBO(255, 242, 218, 1.0)
-                                ),
-                                child: FlatButton(
-                                  onPressed: () {
-                                    if (_questCount == 0) {
-                                      getHobbyRank();
-                                    }
-                                    calculateMinMax(dates.quests[newNum].choise);
-                                    user.plusStatus(dates.quests[newNum].choise[index].status);
-                                    _questCount++;
-                                    if (_questCount >= 10) {
-                                      setRecoHobby(dates.quests[newNum].choise);
-                                    }
-                                    nextQuest(dates.quests);
-                                  },
-                                  child: Text(
-                                    dates.quests[newNum].choise[index].text,
-                                    style: TextStyle(
-                                      fontSize: 10.0,
-                                    ),
-                                    textAlign: TextAlign.center,
+                              height: 110,
+                              child: GridView.builder(
+                              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                                  childAspectRatio: 7.0,
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 10.0
+                              ),
+                              itemCount: dates.quests[newNum].choise.length,
+                              itemBuilder: (BuildContext context, int index) {
+                                return Container(
+                                  margin: EdgeInsets.only(
+                                    left: 10.0,
+                                    right: 10.0
+                                  ),
+                                  decoration: BoxDecoration(
+                                    border: Border.all(width: 1.0),
+                                    borderRadius: BorderRadius.circular(30.0),
+                                    color: Color.fromRGBO(255, 242, 218, 1.0)
+                                  ),
+                                  child: FlatButton(
+                                    onPressed: () {
+                                      if (_questCount == 0) {
+                                        getHobbyRank();
+                                      }
+                                      calculateMinMax(dates.quests[newNum].choise);
+                                      user.plusStatus(dates.quests[newNum].choise[index].status);
+                                      _questCount++;
+                                      if (_questCount >= 10) {
+                                        setRecoHobby(dates.quests[newNum].choise);
+                                      }
+                                      nextQuest(dates.quests);
+                                    },
+                                    child: Text(
+                                      dates.quests[newNum].choise[index].text,
+                                      style: TextStyle(
+                                        fontSize: 10.0,
+                                      ),
+                                      textAlign: TextAlign.center,
+                                    )
                                   )
-                                )
-                              );
-                            },
+                                );
+                              },
+                            )
                           )
-                        )
-                      ],
-                    );
+                        ],
+                      );
+                    } else {
+                      return Container();
+                    }
                   },
                 ),
                 // hobbyArea
@@ -316,14 +364,14 @@ class _DiagnoseState extends State<Diagnose> {
                                       ),
                                       decoration: BoxDecoration(
                                         border: Border.all(width: 0.5),
+                                        borderRadius: BorderRadius.circular(4.0),
                                         color: Color.fromRGBO(255, 190, 72, 1.0)
                                       ),
                                       child: FlatButton(
                                         onPressed: () {
-                                          print('click');
                                           Navigator.push(context, new MaterialPageRoute<Null>(
                                             settings: const RouteSettings(name: "/recognize"),
-                                            builder: (BuildContext context) => new Recognize(dates.hobbys, recoHobbyIndex, index)
+                                            builder: (BuildContext context) => new Recognize(dates.hobbys, recoHobbyIndex)
                                           ));
                                         },
                                         child: Text(
@@ -341,6 +389,23 @@ class _DiagnoseState extends State<Diagnose> {
                                 decoration: BoxDecoration(
                                   border: Border(bottom: BorderSide(width: 1.0, color: Colors.grey))
                                 ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: <Widget>[
+                                  Container(
+                                    height: 30,
+                                    width: 30,
+                                    margin: EdgeInsets.only(top: 10.0, right: 10.0),
+                                    child: FloatingActionButton(
+                                      backgroundColor: Color.fromRGBO(255, 247, 223, 1.0),
+                                      child: backButtonInside,
+                                      onPressed: () {
+                                        Navigator.of(context).pushNamed('/home');
+                                      },
+                                    ),
+                                  )
+                                ],
                               )
                             ]
                           )
@@ -348,8 +413,38 @@ class _DiagnoseState extends State<Diagnose> {
                       } else {
                         return Container(
                           margin: EdgeInsets.only(top: 40),
-                          child: Text(
-                            '診断に必要な情報が足りません！ 質問に直感でお答えください'
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.only(left: 6.0),
+                                child: Text(
+                                  '診断に必要な情報が足りません！ 質問に直感でお答えください'
+                                )
+                              ),
+                              Container(
+                                decoration: BoxDecoration(
+                                  border: Border(bottom: BorderSide(width: 1.0, color: Colors.grey))
+                                ),
+                              ),
+                              Row(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                children: <Widget>[
+                                  Container(
+                                    height: 30,
+                                    width: 30,
+                                    margin: EdgeInsets.only(top: 10.0, right: 10.0),
+                                    child: FloatingActionButton(
+                                      backgroundColor: Color.fromRGBO(255, 247, 223, 1.0),
+                                      child: backButtonInside,
+                                      onPressed: () {
+                                        Navigator.of(context).pushNamed('/home');
+                                      },
+                                    ),
+                                  )
+                                ],
+                              )
+                            ]
                           )
                         );
                       }

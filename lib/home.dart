@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage>
                 ),
                 FlatButton(
                   onPressed: () {
-                    Navigator.of(context).pushNamed('/diagnose');
+                    Navigator.of(context).pushReplacementNamed('/diagnose');
                   },
                   color: Color.fromRGBO(255, 165, 0, controller.value),
                   child: Text(
