@@ -8,6 +8,7 @@ import 'package:hobbyapp/ui/background.dart';
 import 'package:hobbyapp/ui/backButtonInside.dart';
 import 'package:hobbyapp/recognize.dart';
 
+import 'package:flutter_share_me/flutter_share_me.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:convert';
 import 'dart:math';
@@ -184,7 +185,7 @@ class _DiagnoseState extends State<Diagnose> {
           // questArea
           Container(
             color: Colors.white,
-            height: 462,
+            height: 465,
             margin: EdgeInsets.only(top: 50),
               child: Column(
                 children: <Widget>[
@@ -393,6 +394,52 @@ class _DiagnoseState extends State<Diagnose> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: <Widget>[
+                                  // Container(
+                                  //   height: 30,
+                                  //   width: 30,
+                                  //   margin: EdgeInsets.only(top: 10.0, right: 10.0),
+                                  //   child: FloatingActionButton(
+                                  //     backgroundColor: Color.fromRGBO(255, 247, 223, 1.0),
+                                  //     child: Container(
+                                  //       decoration: BoxDecoration(
+                                  //         shape: BoxShape.circle,
+                                  //         image: DecorationImage(
+                                  //           image: AssetImage('assets/icon/twitterIcon.png')
+                                  //         )
+                                  //       ),
+                                  //     ),
+                                  //     onPressed: () async {
+                                  //       var response = await FlutterShareMe().shareToTwitter(
+                                  //           url: 'https://github.com/lizhuoyuan',
+                                  //           msg: 'hello flutter! ');
+                                  //       if (response == 'success') {
+                                  //         print('navigate success');
+                                  //       }
+                                  //     },
+                                  //   ),
+                                  // ),
+                                  // Container(
+                                  //   height: 30,
+                                  //   width: 30,
+                                  //   margin: EdgeInsets.only(top: 10.0, right: 10.0),
+                                  //   child: FloatingActionButton(
+                                  //     backgroundColor: Color.fromRGBO(255, 247, 223, 1.0),
+                                  //     child: Container(
+                                  //       decoration: BoxDecoration(
+                                  //         shape: BoxShape.circle,
+                                  //         image: DecorationImage(
+                                  //           image: AssetImage('assets/icon/facebookIcon.png')
+                                  //         )
+                                  //       ),
+                                  //     ),
+                                  //     onPressed: () {
+                                  //       FlutterShareMe().shareToFacebook(
+                                  //         url: 'https://github.com/lizhuoyuan',
+                                  //         msg: 'Hello Flutter'
+                                  //       );
+                                  //     },
+                                  //   ),
+                                  // ),
                                   Container(
                                     height: 30,
                                     width: 30,
