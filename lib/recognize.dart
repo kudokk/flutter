@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:hobbyapp/utils/json/hobby.dart';
 import 'package:hobbyapp/ui/background.dart';
@@ -21,7 +20,7 @@ class Recognize extends StatelessWidget {
           backGround,
           Container(
             color: Colors.white,
-            height: 500,
+            height: 620,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
@@ -35,7 +34,7 @@ class Recognize extends StatelessWidget {
                     _hobbys[_recoHobbyIndex[0]].name,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 18.0
+                      fontSize: 26.0
                     ),
                   ),
                 ),
@@ -44,7 +43,7 @@ class Recognize extends StatelessWidget {
                   child: Text(
                     _hobbys[_recoHobbyIndex[0]].desc,
                     style: TextStyle(
-                      fontSize: 16.0
+                      fontSize: 20.0
                     ),
                   ),
                 ),
@@ -57,7 +56,7 @@ class Recognize extends StatelessWidget {
                         margin: EdgeInsets.only(top: 2.0, right: 4.0),
                         child: Icon(
                           Icons.search,
-                          size: 18.0,
+                          size: 20.0,
                           color: Colors.blue,
                         )
                       ),
@@ -67,7 +66,7 @@ class Recognize extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.blue,
                             decoration: TextDecoration.underline,
-                            fontSize: 12.0,
+                            fontSize: 20.0,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -90,7 +89,7 @@ class Recognize extends StatelessWidget {
                     _hobbys[_recoHobbyIndex[1]].name,
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 18.0
+                      fontSize: 28.0
                     ),
                   ),
                 ),
@@ -99,7 +98,7 @@ class Recognize extends StatelessWidget {
                   child: Text(
                     _hobbys[_recoHobbyIndex[1]].desc,
                     style: TextStyle(
-                      fontSize: 16.0
+                      fontSize: 20.0
                     )
                   ),
                 ),
@@ -112,7 +111,7 @@ class Recognize extends StatelessWidget {
                         margin: EdgeInsets.only(top: 2.0, right: 4.0),
                         child: Icon(
                           Icons.search,
-                          size: 18.0,
+                          size: 20.0,
                           color: Colors.blue,
                         )
                       ),
@@ -122,7 +121,7 @@ class Recognize extends StatelessWidget {
                           style: TextStyle(
                             color: Colors.blue,
                             decoration: TextDecoration.underline,
-                            fontSize: 12.0,
+                            fontSize: 20.0,
                           ),
                           textAlign: TextAlign.center,
                         ),
@@ -145,8 +144,8 @@ class Recognize extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: <Widget>[
                     Container(
-                      height: 30,
-                      width: 30,
+                      height: 40,
+                      width: 40,
                       margin: EdgeInsets.only(top: 10.0, right: 10.0),
                       child: FloatingActionButton(
                         heroTag: 'btn2',
@@ -158,8 +157,8 @@ class Recognize extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      height: 30,
-                      width: 30,
+                      height: 40,
+                      width: 40,
                       margin: EdgeInsets.only(top: 10.0, right: 10.0),
                       child: FloatingActionButton(
                         heroTag: 'btn3',

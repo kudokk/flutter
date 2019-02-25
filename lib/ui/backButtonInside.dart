@@ -7,15 +7,15 @@ var backButtonInside =  Container(
       Text(
         'やり',
         style: TextStyle(
-          fontSize: 8.0,
-          height: 0.8
+          fontSize: 10.0,
+          height: 0.9
         ),
       ),
       Text(
         '直す',
         style: TextStyle(
-          fontSize: 8.0,
-          height: 0.8
+          fontSize: 10.0,
+          height: 0.9
         ),
       ),
     ],

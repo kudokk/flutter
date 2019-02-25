@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage>
                     '趣味診断',
                     textAlign: TextAlign.center,
                     style: TextStyle(
-                      fontSize: 26.0,
+                      fontSize: 34.0,
                       fontWeight: FontWeight.bold
                     )
                   ),
@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage>
                   child: Text(
                     '趣味診断を始める',
                     style: TextStyle(
-                      fontSize: 14.0,
+                      fontSize: 18.0,
                       fontWeight: FontWeight.w400
                     )
                   )

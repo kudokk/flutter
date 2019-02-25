@@ -185,7 +185,7 @@ class _DiagnoseState extends State<Diagnose> {
           // questArea
           Container(
             color: Colors.white,
-            height: 465,
+            height: 510,
             margin: EdgeInsets.only(top: 50),
               child: Column(
                 children: <Widget>[
@@ -210,7 +210,7 @@ class _DiagnoseState extends State<Diagnose> {
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: <Widget>[
                                   Container(
-                                    margin: EdgeInsets.only(right: 15.0),
+                                    margin: EdgeInsets.only(right: 6.0),
                                     child: Text(
                                       'Q.',
                                       style: TextStyle(
@@ -226,7 +226,7 @@ class _DiagnoseState extends State<Diagnose> {
                                       dates.quests[newNum].ask,
                                       style: TextStyle(
                                         decoration: TextDecoration.underline,
-                                        fontSize: 15.0
+                                        fontSize: 16.0
                                       ),
                                       textAlign: TextAlign.center,
                                     ),
@@ -262,7 +262,7 @@ class _DiagnoseState extends State<Diagnose> {
                                   child: Text(
                                     ((_questCount / dates.quests.length * 1000).round() / 10).toString() + '%',
                                     style: TextStyle(
-                                      fontSize: 10.0
+                                      fontSize: 14.0
                                     ),
                                   ),
                                 )
@@ -272,10 +272,10 @@ class _DiagnoseState extends State<Diagnose> {
                               decoration: BoxDecoration(
                                 border: Border(bottom: BorderSide(width: 1.0, color: Colors.grey))
                               ),
-                              height: 110,
+                              height: 140,
                               child: GridView.builder(
                               gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                                  childAspectRatio: 7.0,
+                                  childAspectRatio: 4.5,
                                   crossAxisCount: 2,
                                   mainAxisSpacing: 10.0
                               ),
@@ -286,12 +286,13 @@ class _DiagnoseState extends State<Diagnose> {
                                     left: 10.0,
                                     right: 10.0
                                   ),
-                                  decoration: BoxDecoration(
-                                    border: Border.all(width: 1.0),
-                                    borderRadius: BorderRadius.circular(30.0),
-                                    color: Color.fromRGBO(255, 242, 218, 1.0)
-                                  ),
+                                  // decoration: BoxDecoration(
+                                  //   border: Border.all(width: 1.0),
+                                  //   borderRadius: BorderRadius.circular(8.0),
+                                  //   color: Color.fromRGBO(255, 242, 218, 1.0)
+                                  // ),
                                   child: FlatButton(
+                                    color: Color.fromRGBO(255, 242, 218, 1.0),
                                     onPressed: () {
                                       if (_questCount == 0) {
                                         getHobbyRank();
@@ -307,7 +308,7 @@ class _DiagnoseState extends State<Diagnose> {
                                     child: Text(
                                       dates.quests[newNum].choise[index].text,
                                       style: TextStyle(
-                                        fontSize: 10.0,
+                                        fontSize: 14.0,
                                       ),
                                       textAlign: TextAlign.center,
                                     )
@@ -394,57 +395,60 @@ class _DiagnoseState extends State<Diagnose> {
                               Row(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: <Widget>[
-                                  // Container(
-                                  //   height: 30,
-                                  //   width: 30,
-                                  //   margin: EdgeInsets.only(top: 10.0, right: 10.0),
-                                  //   child: FloatingActionButton(
-                                  //     backgroundColor: Color.fromRGBO(255, 247, 223, 1.0),
-                                  //     child: Container(
-                                  //       decoration: BoxDecoration(
-                                  //         shape: BoxShape.circle,
-                                  //         image: DecorationImage(
-                                  //           image: AssetImage('assets/icon/twitterIcon.png')
-                                  //         )
-                                  //       ),
-                                  //     ),
-                                  //     onPressed: () async {
-                                  //       var response = await FlutterShareMe().shareToTwitter(
-                                  //           url: 'https://github.com/lizhuoyuan',
-                                  //           msg: 'hello flutter! ');
-                                  //       if (response == 'success') {
-                                  //         print('navigate success');
-                                  //       }
-                                  //     },
-                                  //   ),
-                                  // ),
-                                  // Container(
-                                  //   height: 30,
-                                  //   width: 30,
-                                  //   margin: EdgeInsets.only(top: 10.0, right: 10.0),
-                                  //   child: FloatingActionButton(
-                                  //     backgroundColor: Color.fromRGBO(255, 247, 223, 1.0),
-                                  //     child: Container(
-                                  //       decoration: BoxDecoration(
-                                  //         shape: BoxShape.circle,
-                                  //         image: DecorationImage(
-                                  //           image: AssetImage('assets/icon/facebookIcon.png')
-                                  //         )
-                                  //       ),
-                                  //     ),
-                                  //     onPressed: () {
-                                  //       FlutterShareMe().shareToFacebook(
-                                  //         url: 'https://github.com/lizhuoyuan',
-                                  //         msg: 'Hello Flutter'
-                                  //       );
-                                  //     },
-                                  //   ),
-                                  // ),
                                   Container(
-                                    height: 30,
-                                    width: 30,
+                                    height: 40,
+                                    width: 40,
                                     margin: EdgeInsets.only(top: 10.0, right: 10.0),
                                     child: FloatingActionButton(
+                                      heroTag: 'btn5',
+                                      backgroundColor: Color.fromRGBO(255, 247, 223, 1.0),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                            image: AssetImage('assets/icon/twitterIcon.png')
+                                          )
+                                        ),
+                                      ),
+                                      onPressed: () async {
+                                        var response = await FlutterShareMe().shareToTwitter(
+                                            url: 'https://play.google.com/store/apps/details?id=kudo.hobbyapp',
+                                            msg: 'オススメの趣味は' + dates.hobbys[recoHobbyIndex[0]].name + 'か' + dates.hobbys[recoHobbyIndex[1]].name   + 'らしい。');
+                                        if (response == 'success') {
+                                          print('navigate success');
+                                        }
+                                      },
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 40,
+                                    width: 40,
+                                    margin: EdgeInsets.only(top: 10.0, right: 10.0),
+                                    child: FloatingActionButton(
+                                      heroTag: 'btn0',
+                                      backgroundColor: Color.fromRGBO(255, 247, 223, 1.0),
+                                      child: Container(
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          image: DecorationImage(
+                                            image: AssetImage('assets/icon/facebookIcon.png')
+                                          )
+                                        ),
+                                      ),
+                                      onPressed: () {
+                                        FlutterShareMe().shareToFacebook(
+                                          url: 'https://play.google.com/store/apps/details?id=kudo.hobbyapp',
+                                          msg: 'オススメの趣味は' + dates.hobbys[recoHobbyIndex[0]].name + 'か' + dates.hobbys[recoHobbyIndex[1]].name   + 'らしい。'
+                                        );
+                                      },
+                                    ),
+                                  ),
+                                  Container(
+                                    height: 40,
+                                    width: 40,
+                                    margin: EdgeInsets.only(top: 10.0, right: 10.0),
+                                    child: FloatingActionButton(
+                                      heroTag: 'btn1',
                                       backgroundColor: Color.fromRGBO(255, 247, 223, 1.0),
                                       child: backButtonInside,
                                       onPressed: () {
@@ -478,10 +482,11 @@ class _DiagnoseState extends State<Diagnose> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: <Widget>[
                                   Container(
-                                    height: 30,
-                                    width: 30,
+                                    height: 40,
+                                    width: 40,
                                     margin: EdgeInsets.only(top: 10.0, right: 10.0),
                                     child: FloatingActionButton(
+                                      heroTag: 'btn4',
                                       backgroundColor: Color.fromRGBO(255, 247, 223, 1.0),
                                       child: backButtonInside,
                                       onPressed: () {
